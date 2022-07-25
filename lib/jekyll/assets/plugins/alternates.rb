@@ -62,10 +62,7 @@ if Jekyll::Assets::Utils.activate("crass")
         Hook.register :asset, :after_compression do |_, o, t|
           next unless t == "text/css"
 
-          o.update({
-            # Remember we guard against compression.
-            data: o[:data].gsub(NODER, " #{NODE3[:raw]} "),
-          })
+          o.gsub(NODER, " #{NODE3[:raw]} ")
         end
 
         # --
